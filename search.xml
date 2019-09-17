@@ -4,31 +4,6 @@
   
     
     <entry>
-      <title>差分</title>
-      <link href="/2019/09/17/cahfen/"/>
-      <url>/2019/09/17/cahfen/</url>
-      
-        <content type="html"><![CDATA[<h3 id="差分"><a href="#差分" class="headerlink" title="差分"></a>差分</h3><p>输入一个长度为n的整数序列。<br>接下来输入m个操作，每个操作包含三个整数l, r, c，表示将序列中[l, r]之间的每个数加上c。<br>请你输出进行完所有操作后的序列。<br>输入格式<br>第一行包含两个整数n和m。<br>第二行包含n个整数，表示整数序列。<br>接下来m行，每行包含三个整数l，r，c，表示一个操作。</p><p><strong>输出格式</strong><br>共一行，包含n个整数，表示最终序列。</p><p><strong>数据范围</strong><br>1≤n,m≤100000,<br>1≤l≤r≤n,<br>−1000≤c≤1000,<br>−1000≤整数序列中元素的值≤1000</p><h4 id="假装分割线"><a href="#假装分割线" class="headerlink" title="假装分割线"></a>假装分割线</h4><hr><p>定义s为原数组，b为差分数组；<br>b[i] = s[i] - s[i - 1]<br>所以 s为b的前缀和；<br>证明：<br>    s[n] = s[1] + s[2] + s[2] + … s[n];<br>    s[1] = b[1], s[2] = b[2] - b[1];类推得；<br>    b[i] = b[1] + b[2] - b[1] + b[3] - b[2] + … + b[n] - b[n - 1];<br>前后抵消，得s为b的前缀和；</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;vector&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">vector&lt;int&gt; s(100010,0),b(100010,0);</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    int n,m;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">for</span>(int i = 1; i &lt;= n; i++)cin&gt;&gt;s[i];</span><br><span class="line">    <span class="keyword">for</span>(int i = 1; i &lt;= n; i++)b[i] = s[i] - s[i - 1];</span><br><span class="line">    <span class="keyword">while</span>(m--)&#123;</span><br><span class="line">        int x,y,z;</span><br><span class="line">        cin&gt;&gt;x&gt;&gt;y&gt;&gt;z;</span><br><span class="line">        b[x] += z;</span><br><span class="line">        b[y + 1] -= z;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(int i = 1; i &lt;= n ;i++)&#123;</span><br><span class="line">        b[i] += b[i - 1];</span><br><span class="line">        cout&lt;&lt;b[i]&lt;&lt;<span class="string">' '</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> acwing </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 差分 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>大数模板</title>
       <link href="/2019/09/17/chafen/"/>
       <url>/2019/09/17/chafen/</url>
