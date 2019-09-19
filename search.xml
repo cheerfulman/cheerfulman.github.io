@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>二进制中1的个数</title>
+      <link href="/2019/09/19/lowbit/"/>
+      <url>/2019/09/19/lowbit/</url>
+      
+        <content type="html"><![CDATA[<h1 id="二进制中1的个数"><a href="#二进制中1的个数" class="headerlink" title="二进制中1的个数"></a>二进制中1的个数</h1><hr><p><code>例题:</code></p><p>给定一个长度为n的数列，请你求出数列中每个数的二进制表示中1的个数。</p><p><strong>输入格式</strong><br>第一行包含整数n。</p><p>第二行包含n个整数，表示整个数列。</p><p><strong>输出格式</strong><br>共一行，包含n个整数，其中的第 i 个数表示数列中的第 i 个数的二进制表示中1的个数。</p><p><strong>数据范围</strong><br>1≤n≤100000,<br>0≤数列中元素的值≤109<br>输入样例：<br>5<br>1 2 3 4 5<br><strong>输出样例：</strong><br>1 1 2 1 2</p><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 1e5 + 10;</span><br><span class="line">//暴力解法</span><br><span class="line">/*int get(int x)&#123;</span><br><span class="line">    int cnt = 0;</span><br><span class="line">    <span class="keyword">while</span>(x)&#123;</span><br><span class="line">        <span class="keyword">if</span>(x &amp; 1)cnt ++;</span><br><span class="line">        x &gt;&gt;= 1;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> cnt;</span><br><span class="line">&#125;*/</span><br><span class="line">//在计算机中是以二进制补码存储的，例如:</span><br><span class="line">//负数补码为取反+1</span><br><span class="line">//x = 010001</span><br><span class="line">//-x = 101110</span><br><span class="line">// x &amp; (-x) 得到最后一位为1的数；</span><br><span class="line">//再将其去掉，不断进行，直到没有1；</span><br><span class="line">//也可等于x &amp; (x - 1)；</span><br><span class="line"></span><br><span class="line">int lowbit(int x)&#123;</span><br><span class="line">    int res = 0;</span><br><span class="line">    <span class="keyword">while</span>(x)&#123;</span><br><span class="line">        x -= (x &amp; (-x));</span><br><span class="line">        res ++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int a[N];</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">while</span>(n--)&#123;</span><br><span class="line">        int x;</span><br><span class="line">        cin&gt;&gt;x;</span><br><span class="line">        cout&lt;&lt;lowbit(x)&lt;&lt;<span class="string">' '</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> acwing </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> lowbit </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>差分矩阵</title>
       <link href="/2019/09/19/chafenjuzheng/"/>
       <url>/2019/09/19/chafenjuzheng/</url>
