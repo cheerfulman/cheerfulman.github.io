@@ -104,43 +104,12 @@
     
     
     <entry>
-      <title>First</title>
-      <link href="/2019/09/11/first/"/>
-      <url>/2019/09/11/first/</url>
-      
-        <content type="html"><![CDATA[<h3 id="cheerfulman"><a href="#cheerfulman" class="headerlink" title="cheerfulman"></a>cheerfulman</h3><blockquote><p>可能我才是醉帅的</p></blockquote><p>请问,在哮喘发作的时候做什么会解脱的更快呢<em>(:_」∠)</em>,bilibili是国内知名的视频弹幕网站,这里有最及时的动漫新番,最棒的ACG氛围,最有创意的.</p><ul><li>写一个列表：</li><li>无序列表</li><li>我的</li></ul><ol><li>我的</li><li>阿斯蒂芬</li><li>阿斯蒂芬</li></ol><p><img alt="123" data-src="C:%5CUsers%5CAdministrator%5CDesktop%5Ccbcecf65df8cbf993c0c73b2e22a9081.jpeg" class="lozad"><br><a href="www.baidu.com">baidu</a><br><strong>卢鸿铭</strong><br><em>袁一凡</em></p><p align="left"><font face="宋体" color="red" size="28">字体、颜色和字号</font></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> kk </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> c++ </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Hello cheerfulman</title>
       <link href="/2019/09/11/hello-world/"/>
       <url>/2019/09/11/hello-world/</url>
       
         <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
       
-      
-      <categories>
-          
-          <category> -wu </category>
-          
-      </categories>
       
       
     </entry>
