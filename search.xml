@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>最长连续不重复子序列</title>
+      <link href="/2019/09/20/shuangzhizhen/"/>
+      <url>/2019/09/20/shuangzhizhen/</url>
+      
+        <content type="html"><![CDATA[<h1 id="最长连续不重复子序列"><a href="#最长连续不重复子序列" class="headerlink" title="最长连续不重复子序列"></a>最长连续不重复子序列</h1><hr><p><code>例题:</code><br>给定一个长度为n的整数序列，请找出最长的不包含重复数字的连续区间，输出它的长度。<br><strong>输入格式</strong><br>第一行包含整数n。<br>第二行包含n个整数（均在0~100000范围内），表示整数序列。<br><strong>输出格式</strong><br>共一行，包含一个整数，表示最长的不包含重复数字的连续子序列的长度。<br><strong>数据范围</strong><br>1≤n≤100000<br><strong>输入样例：</strong><br>5<br>1 2 2 3 5<br><strong>输出样例：</strong><br>3</p><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a><strong>解题思路</strong></h2><p>s记录a[i]的个数，当a[i]个数&gt;1时，将j-i的数字都删除，并且将s[a[i]] = 1；<br>不断刷新ans的值；</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line"><span class="comment">#include&lt;algorithm&gt;</span></span><br><span class="line"><span class="comment">#include&lt;map&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 1e5 + 10;</span><br><span class="line">int a[N],s[N];</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="literal">false</span>);</span><br><span class="line">    cin.tie(0);</span><br><span class="line">    int n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="keyword">for</span>(int i = 1; i &lt;= n; i++)cin&gt;&gt;a[i];</span><br><span class="line">    int l = 1, r = 1, ans = -999;</span><br><span class="line">    </span><br><span class="line">    //map&lt;int,int&gt; s;</span><br><span class="line">    //s.insert(a[l]);</span><br><span class="line">    <span class="keyword">for</span>(int i = 1,j = 1; i &lt;= n ;i++)&#123;</span><br><span class="line">        s[a[i]]++;</span><br><span class="line">        <span class="keyword">while</span>(j &lt;= i &amp;&amp; s[a[i]] &gt; 1)&#123;</span><br><span class="line">            s[a[j]]--;</span><br><span class="line">            j++;</span><br><span class="line">        &#125;</span><br><span class="line">        ans = max(ans,i - j + 1);</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> acwing </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 双指针 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>二进制中1的个数</title>
       <link href="/2019/09/19/lowbit/"/>
       <url>/2019/09/19/lowbit/</url>
