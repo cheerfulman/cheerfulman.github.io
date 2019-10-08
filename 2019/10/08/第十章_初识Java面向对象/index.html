@@ -1,0 +1,641 @@
+<!DOCTYPE html><html lang="en"><head><meta name="generator" content="Hexo 3.9.0"><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>第十章 初识Java面向对象 | Hexo</title><meta name="description" content="第十章 初识Java面向对象"><meta name="keywords" content="JAVA"><meta name="author" content="cheerfulman"><meta name="copyright" content="cheerfulman"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="http://cheerfulman.github.io/2019/10/08/第十章_初识Java面向对象/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="第十章 初识Java面向对象"><meta name="twitter:description" content="第十章 初识Java面向对象"><meta name="twitter:image" content="http://pic40.nipic.com/20140424/12259251_002036722178_2.jpg"><meta property="og:type" content="article"><meta property="og:title" content="第十章 初识Java面向对象"><meta property="og:url" content="http://cheerfulman.github.io/2019/10/08/第十章_初识Java面向对象/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="第十章 初识Java面向对象"><meta property="og:image" content="http://pic40.nipic.com/20140424/12259251_002036722178_2.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="next" title="最长连续不重复子序列" href="http://cheerfulman.github.io/2019/09/20/shuangzhizhen/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"cookieDomain":"https://xxx/","msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简"},
+  highlight_copy: 'true',
+  highlight_lang: 'true',
+  highlight_shrink: 'true',
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  bookmark: {
+    title: 'Bookmark',
+    message_prev: 'Press',
+    message_next: 'to bookmark this page'
+  },
+  runtime_unit: 'days'
+
+  
+}</script></head><body><canvas class="fireworks"></canvas><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true"></i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">Catalog</div><div class="sidebar-toc__progress"><span class="progress-notice">You've read</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#第十章-初识Java面向对象"><span class="toc-number">1.</span> <span class="toc-text">第十章 初识Java面向对象</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提纲"><span class="toc-number">1.1.</span> <span class="toc-text">提纲</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#一、类与对象的概念"><span class="toc-number">1.2.</span> <span class="toc-text">一、类与对象的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-2-面向对象思想"><span class="toc-number">1.3.</span> <span class="toc-text">10.2 面向对象思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-3-复合语句"><span class="toc-number">1.4.</span> <span class="toc-text">10.3 复合语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-4-类"><span class="toc-number">1.5.</span> <span class="toc-text">10.4 类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-5-作业"><span class="toc-number">1.6.</span> <span class="toc-text">10.5 作业</span></a></li></ol></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(http://pic40.nipic.com/20140424/12259251_002036722178_2.jpg)"><div id="page-header"><span class="pull-left"> <a class="blog_title" id="site-name" href="/">Hexo</a></span><div class="open toggle-menu pull-right"><div class="menu-icon-first"></div><div class="menu-icon-second"></div><div class="menu-icon-third"></div></div><div class="menu_mask"></div><span class="pull-right menus"><div class="mobile_author_icon"><img class="lozad avatar_img" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item text-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">Articles</div><div class="length_num">7</div></a></div></div><div class="mobile_data_item text-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">Tags</div><div class="length_num">6</div></a></div></div><div class="mobile_data_item text-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">Categories</div><div class="length_num">5</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> 我的</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> 成长</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> 友链</span></a></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right"></span></div><div id="post-info"><div id="post-title"><div class="posttitle">第十章 初识Java面向对象</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> Created 2019-10-08<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> Updated 2019-10-08</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/JAVA/">JAVA</a></span><div class="post-meta-wordcount"><span>Word count: </span><span class="word-count">7.1k</span><span class="post-meta__separator">|</span><span>Reading time: 23 min</span><span class="post-meta__separator">|</span><span>Post View: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h1 id="第十章-初识Java面向对象"><a href="#第十章-初识Java面向对象" class="headerlink" title="第十章 初识Java面向对象"></a>第十章 初识Java面向对象</h1><hr>
+<h2 id="提纲"><a href="#提纲" class="headerlink" title="提纲"></a>提纲</h2><ul>
+<li>10.1 类与对象的概念<ul>
+<li>10.1.1 对象</li>
+<li>10.1.2 类</li>
+<li>10.1.3 类与对象的关系</li>
+</ul>
+</li>
+<li>10.2 Java面向对象程序设计的三大特点<ul>
+<li>10.2.1 封装</li>
+<li>10.2.2 继承</li>
+<li>10.2.3 多态</li>
+</ul>
+</li>
+<li>10.3 复合语句</li>
+<li>10.4 类<ul>
+<li>10.4.1 概念</li>
+<li>10.4.2 成员变量</li>
+<li>10.4.3 成员方法</li>
+<li>10.4.4 对象的创建、堆与栈、使用和生命周期</li>
+<li>10.4.5 变量与方法四种形态使用示例</li>
+<li>10.4.6 成员变量与局部变量的区别</li>
+<li>10.4.7 属性与方法调用总结</li>
+<li>10.4.8 Java类包</li>
+<li>10.4.9 代码排版的快捷键</li>
+<li>10.4.10 传递参数的类型</li>
+<li>10.4.11 返回值类型</li>
+</ul>
+</li>
+<li>10.5 作业</li>
+</ul>
+<hr>
+<h2 id="一、类与对象的概念"><a href="#一、类与对象的概念" class="headerlink" title="一、类与对象的概念"></a>一、类与对象的概念</h2><ul>
+<li>10.1.1 对象<ul>
+<li>现实世界中，随处可见的事物就是对象。比如人、书桌、电脑、瓶子、显示器、主机等。每一个对象又可以划分为两个部分，即 <strong>静态部分</strong> 与 <strong>动态部分</strong> 。 </li>
+<li><strong>静态部分</strong> ：就是不能动的部分，这个部分被称为 <strong>“属性”</strong> 。任何对象都会具备其自身的属性，如一个人，其属性可以包括： <strong>高矮、胖瘦、性别、年龄</strong> 等。又比如： <strong>瓶子</strong> 的属性可以是 <strong>材料、容积、品牌、颜色、高矮等</strong> 。</li>
+<li><strong>动态部分：</strong>：就是一个对象会执行哪些动作，也叫做 <strong>行为</strong> 。比如人的动作可以有： <strong>哭泣、微笑、说话、吃饭、行走、打球等等</strong> 。</li>
+<li>例：一只大雁从北方飞往南方。对这个问题从对象的角度进行分析。<ol>
+<li>首先，从这个问题中抽象出对象，这里的抽象出的对象是：大雁.</li>
+<li>然后，识别这个对象的属性。对象具备的属性都是静态属性：如，大雁有一对翅膀、黑色的羽毛、一只嘴、两只脚等等。</li>
+<li>接着，识别这个对象的动态行为。即大雁进行的动作：如，飞行、觅食、跳跃等。</li>
+<li>最后，识别这个对象的属性和行为后，这个对象就被定义完成了。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>10.1.2 类<ul>
+<li>类的概念：类就是同一类事物的统称，比如：鸟类就包括所有的鸟对象，即将所有的鸟归为一个鸟类。但是不能将一个事物描述成一类事物，比如一只鸟不能称为鸟类。</li>
+<li>类的特点：<ul>
+<li>同一类的事物他们都会有一些共有的属性和行为。比如人类，不论是男人、女人、学生、大人、老师等等，他们都具有相同的属性：姓名、年龄、身高、体重、有血、有肉等等。也具有相同的行为：吃饭、走路、哭泣、说话等。</li>
+<li>由于一个类有很多对象，每一个对象的属性的值是有差异的：比如，姓名可以不一样、身高有高有矮、体重也有重的有轻的。行为也会有不一样：比如有的人吃饭用左手、走路姿势快慢有差别等等。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>10.1.3 类与对象的关系：<ul>
+<li>对象是具体的事物，将一类具有相似属性和行为的对象抽象为类。即类是抽象的，对象是具体的。比如：你要别人去买电脑，你跟他说：去跟我买台电脑，别人听了之后肯定会疑惑，电脑有那么多牌子，那么多价格，你到底要买哪个？从这个例子可以看出，电脑就是一个类，具体的牌子，配置，价格的一台电脑就是一个对象，它是具体存在的。</li>
+<li>先有具体的对象，然后抽象各个对象之间象的部分，归纳出来类，通过类再认识其他对象。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="10-2-面向对象思想"><a href="#10-2-面向对象思想" class="headerlink" title="10.2 面向对象思想"></a>10.2 面向对象思想</h2><ul>
+<li>10.2.1 封装：<ul>
+<li>属性能够描述事物的特征，方法能够描述事物的动作。封装就是把同一类事物的共性（包括属性和方法）归到同一类中，方便使用。</li>
+<li>具体什么是封装： <strong>封装</strong> 也称信息隐藏，是指对于数据的操作封装起来，使其成为一个不可分割的 <strong>整体</strong> ，尽可能的隐藏数据细节，只保留一些接口使其与外界发生联系。也就是说用户无需知道内部的数据和方法的具体实现细节，只需根据留在外部的接口进行操作就行。    </li>
+<li>好处：<ol>
+<li><strong>实现了专业的分工</strong></li>
+<li><strong>减少耦合(即减少紧密配合与相互影响)</strong></li>
+<li><strong>类内部的结构能够自由修改</strong></li>
+<li><strong>隐藏信息，实现细节</strong></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>10.2.2 继承<ul>
+<li>什么是继承：继承是从已有的类中派生出新的类，新的类能吸收已有类的数据属性和行为，并能扩展新的能力。就跟父亲与儿子的关系一样，一个父亲可以有多个儿子，一个儿子只能有一个亲生父亲。</li>
+<li>好处：<ol>
+<li><strong>继承关系是传递的</strong>。 </li>
+<li><strong>继承提高了代码的复用性</strong>。</li>
+<li><strong>提高了代码的维护性</strong>。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>10.2.3 多态<ul>
+<li>什么是多态：某一种事物有不同的具体的体现。比如，人类有吃饭的行为，但这个行为到每一个具体的对象后就会有不同的体现，吃饭的优雅程度、快慢、左手还是右等。同一个事物在不同的环境条件下也会有不同的结果。这就是多态。</li>
+<li>好处：<strong>提高了程序的扩展性。</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="10-3-复合语句"><a href="#10-3-复合语句" class="headerlink" title="10.3 复合语句"></a>10.3 复合语句</h2><ol>
+<li><p>概念：Java语言的复合语句是整个块区为单位的语句，所以又称块语句或者代码块。复合语句由开括号“{”开始，闭括号“}”结束。</p>
+</li>
+<li><p>定义复合语句：定义一个类或者方法时，他们都是以“{}”作为开始和结束的标记。</p>
+</li>
+<li><p>复合语句的使用：复合语句的每个语句都是从上到下被执行，以整个块为单位，能够用在任何一个单独语句可以用到的地方，复合语句中也可以嵌套复合语句。</p>
+</li>
+<li><p>例：</p>
+<pre><code>int x = 20;
+{//复合语句1开始
+    int y = 40;
+    System.out.println(y);
+    int z = 245;
+    boolean b;
+    {//复合语句2开始
+        b = x &gt; z;
+        System.out.println(b);
+    }//复合语句2结束
+}//复合语句1结束
+//复合语句为局部变量创建了一个作用域，在该作用域中创建的局部变量只能作用域该作用域
+//（是从创建该局部变量开始，到复合语句结束，即便是创建在复合语句中，在创建变量的上面使用变量是不可以的。）
+//在某个变量作用域之外使用该变量会发生错误
+//在变量作用域之外使用b、y、z则会出现错误，但是变量x可以在整个方法体中使用
+//System.out.println(b+y+z);
+String word = &quot;Hello Java&quot;;
+System.out.println(word);
+//执行结果：
+40
+false
+Hello Java</code></pre></li>
+</ol>
+<hr>
+<h2 id="10-4-类"><a href="#10-4-类" class="headerlink" title="10.4 类"></a>10.4 类</h2><ul>
+<li><p>10.4.1 概念:类是封装对象的属性和行为的载体，而在Java语言中对象的属性以 <strong>成员变量</strong> 的形式存在，对象的行为以 <strong>成员方法</strong> 的形式存在。</p>
+</li>
+<li><p>10.4.2 成员变量：</p>
+<ul>
+<li><p>概念：在Java中，对象的属性称为<strong>成员变量</strong>，也称<strong>字段</strong>。</p>
+</li>
+<li><p>定义类和属性的步骤：</p>
+<ol>
+<li><p>首先创建一个图书类，名称为Book。 <strong>注意：类名首字母必须大写！</strong></p>
+</li>
+<li><p>在类中设置三个属性，即三个成员变量：分别为id（图书编号）、name（图书名称）、category（图书分类）。 <strong>注意：成员变量必须要注释。</strong></p>
+</li>
+<li><p>源代码：</p>
+<pre><code>public class Book {
+    int id;//图书编号
+    String name;//图书名称
+    String category;//图书分类
+}</code></pre></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>10.4.3 成员方法：</p>
+<ul>
+<li><p>概念：在Java中，对象的<strong>行为</strong>称为成员方法。</p>
+</li>
+<li><p>方法的主体语法形态：</p>
+<pre><code>访问权限修饰符 返回值类型 方法名(参数1,参数2......){
+    //....方法体
+    return 返回值;
+}</code></pre></li>
+<li><p>方法的主体可分为<strong>四种</strong>形态：</p>
+<ol>
+<li><p>无参数 无返回值</p>
+<ul>
+<li><p>语法结构：</p>
+<pre><code>权限修饰符 void 方法名(){
+    ...//方法体
+}</code></pre></li>
+<li><p>示例：</p>
+<pre><code>//展示自己的信息的方法
+public void display(){
+    System.out.println(&quot;我叫XXX,今年XX岁&quot;);
+}</code></pre></li>
+</ul>
+</li>
+</ol>
+<p>  <strong>注意：方法名命名方式与变量命名方式一样。首字母要小写。</strong></p>
+<ol start="2">
+<li><p>有参数 无返回值</p>
+<ul>
+<li><p>语法结构：</p>
+<pre><code>权限修饰符 void 方法名(参数1,参数2......){
+    ...//方法体
+}</code></pre></li>
+<li><p>示例：</p>
+<pre><code>//编写乞讨的方法
+public void beg(int money){
+    System.out.println(&quot;谢谢你给了我&quot;+money+&quot;元&quot;);
+}</code></pre></li>
+</ul>
+</li>
+<li><p>无参数 有返回值</p>
+<ul>
+<li><p>语法结构：</p>
+<pre><code>权限修饰符 返回值类型 方法名(){
+    ...//方法体
+    return 返回值;
+}</code></pre></li>
+<li><p>示例：</p>
+<pre><code>//编写买花的方法
+public String buyFlowers(){
+    String flower = &quot;一支玫瑰花&quot;;
+    return flower;
+}</code></pre></li>
+</ul>
+</li>
+<li><p>有参数 有返回值</p>
+<ul>
+<li><p>语法结构：</p>
+<pre><code>权限修饰符 返回值类型 方法名(参数类型 参数名,参数类型 参数名.....){
+    ...//方法体
+    return 返回值;
+}</code></pre></li>
+<li><p>示例：</p>
+<pre><code>//编写求两个数求和的方法
+public int sum(int a,int b){
+    int sum = a + b;
+    return sum;
+}</code></pre></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>10.4.4 对象的创建、堆与栈、使用和生命周期</p>
+<ul>
+<li><p>对象的创建</p>
+<ol>
+<li><p>代码演示</p>
+<pre><code>//首先，创建一个图书book类
+public class Book {
+    int id = 666;//图书编号
+    String name;//图书名称
+    //自我展示的方法
+    public void display(){
+        System.out.println(&quot;图书编号是：&quot;+id+&quot;,图书名称是：&quot;+name);
+    }
+}
+//然后，创建一个main方法，本类中创建或者新建一个Test类都可以
+public static void main(String[] args) {
+    //创建对象的两种方法
+    //方法一：
+    //其中：Book为类名，book为创建Book对象的名字，new创建对象的操作符
+    Book book = new Book();
+    //方法二（匿名对象）：匿名对象是指没有栈空间的对象，即没有明确的名字给出对象。
+    //匿名对象使用的是堆内存，是通过关键字new进行开辟，因为没有对应的栈内存空间引用，所以对象只能使用一次。
+    new Book().display();
+}</code></pre></li>
+<li><p>总结：</p>
+<ul>
+<li>对象book被创建出来出来时，内存就为这个对象分配了存储空间。</li>
+<li>每个对象都是相互独立的，在内存中占用独立的内存地址。</li>
+<li>每个对象都具有自己的生命周期。当一个对象的声明周期结束时，这个对象就会变成垃圾，被Java虚拟机自带的垃圾回收机制处理掉。不能再被使用。（垃圾回收机制以后再讲）</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>Java中堆与栈的定义（见图解:Java中堆与栈的区别.png）<br><img alt="Java中堆与栈的区别" data-src="%E8%AF%BE%E4%B8%8A%E5%9B%BE%E7%89%87/Java%E4%B8%AD%E5%A0%86%E4%B8%8E%E6%A0%88%E7%9A%84%E5%8C%BA%E5%88%AB.png" class="lozad"></p>
+<ol>
+<li><p>栈（stack）：存放一些基本类型的变量和对象的引用变量。</p>
+<ul>
+<li><p>八种基本数据类型（不包括String，因为String是一个类）、创建对象时没有new关键字的左边部分称为对象的引用。</p>
+<pre><code>public static void main(String[] args) {
+    int a = 1;
+    double b = 2.6;
+    boolean c = true;
+    Book book = null;//这个称为对象引用
+}
+//执行结果：
+a=1,b=2.6,c=true,book=null</code></pre></li>
+</ul>
+<p> <strong>总结：在main直接定义变量时为局部变量，必须要初始化才能使用该变量。而在类中定义的成员变量则可以不用手动初始化，因为在创建对象的时候会对其进行初始化。</strong></p>
+</li>
+<li><p>堆（heap）：存放由new创建的对象和数组。</p>
+<pre><code>public static void main(String[] args) {
+    //创建对象
+    Book book = new Book();
+    //创建数组
+    int[] arri = new int[10];
+    System.out.println(&quot;book=&quot;+book+&quot;,arri=&quot;+arri);
+}
+//执行结果：
+book=com.zxjy.Book@c3c749,arri=[I@150bd4d
+//打印出栈中的内存地址</code></pre></li>
+</ol>
+</li>
+<li><p>对象的使用（即访问类中成员变量与成员方法）</p>
+<ul>
+<li><p>调用步骤    </p>
+<ol>
+<li>创建一个类，类中有属性和方法</li>
+<li>创建一个测试类Test，类中有一个main方法</li>
+<li>创建这个类的一个对象</li>
+<li>使用创建的对象名.属性名调用类的属性</li>
+<li>使用创建的对象名.方法名调用类的方法</li>
+</ol>
+</li>
+<li><p>代码演示：            </p>
+<pre><code>public static void main(String[] args) {
+    //创建两个Book类的对象
+    Book book1 = new Book();
+    Book book2 = new Book();
+    book1.id = 888;
+    book1.name = &quot;高考满分作文&quot;;
+    //使用第一个对象调用类的成员变量，使用创建的对象名.属性名调用类的属性
+    book1.display();
+    book2.name = &quot;青年文摘&quot;;
+    //使用第二个对象调用类的成员变量，使用创建的对象名.方法名调用类的方法
+    book2.display();
+}
+//执行结果
+图书编号是：888,图书名称是：高考满分作文
+图书编号是：666,图书名称是：青年文摘</code></pre></li>
+<li><p>总结：</p>
+<ul>
+<li>调用方式：首先实例化一个对象，使用对象名加上“.”操作符调用类的成员变量和成员方法。最后直接用“=”给成员变量赋值。</li>
+<li>两个对象相互独立，改变一个对象的任何成员变量的值并不会影响到另一个对象。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>对象的生命周期</p>
+<ol>
+<li><p>概念：每个对象都会有生命周期，当对象的生命周期结束时，分配给该对象的内存地址会被回收。其他语言需要手动回收，Java中有一套完整的垃圾自动回收机制。</p>
+</li>
+<li><p>对象在什么时候会被视为垃圾：</p>
+<ul>
+<li><p>对象的引用超出其作用范围时：</p>
+<pre><code>public static void main(String[] args) {
+    int a = 99;
+    {
+        //创建对象：对象的生命周期开始
+        Book book = new Book();
+        //使用对象：对象的生命周期过程
+        book.id = 100;
+        book.name = &quot;王尼玛选集&quot;;
+        book.display();
+        //对象作用范围只属于该代码块，再往下已超出其作用范围，对象生命周期消亡
+    }
+    //这里不能使用book，因为超出了它的使用范围
+    //System.out.println(book);
+    System.out.println(a);
+}</code></pre></li>
+<li><p>将对象赋值为null时：</p>
+<pre><code>public static void main(String[] args) {
+    int a = 99;
+    {
+        //创建对象：对象的生命周期开始
+        Book book = new Book();
+        //使用对象：对象的声明周期过程
+        book.id = 100;
+        book.name = &quot;王尼玛选集&quot;;
+        book = null;//这里对象被赋值为null，生命周期消亡。此时并未超出作用范围
+        book.display();//这里将不能再调用方法，否则会出现运行错误。
+    }
+    System.out.println(a);
+}</code></pre></li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>10.4.5 变量与方法四种形态使用示例：定义一个人类Person，类中有属性姓名name、年龄age。类中有方法：自我介绍的方法、求两个整数和的方法、乞讨的方法、买花的方法。要求：另外创建一个测试类，在main方法中给属性赋值并调用类中的方法。</p>
+<pre><code>//1.创建Person类
+public class Person {
+    String name;//姓名
+    int age;//年龄
+
+    //自我介绍的方法
+    public void display(){
+        System.out.println(&quot;我叫&quot;+name+&quot;,今年&quot;+age+&quot;岁&quot;);
+    }
+
+    //编写乞讨的方法
+    public void beg(int money){
+        System.out.println(&quot;谢谢你给了我&quot;+money+&quot;元&quot;);
+    }
+
+    //编写买花的方法,结果得到一枝玫瑰花
+    public String buyFlowers(){
+        String flower = &quot;一支玫瑰花&quot;;
+        return flower;
+    }
+
+    //编写计算两个整数的和的方法，结果得到两个数的和
+    public int sum(int a,int b){
+        int sum = a + b;
+        return sum;
+    }
+}
+//2.创建Test测试类
+public class Test {
+    public static void main(String[] args) {
+        Person person1 = new Person();//创建人类的一个对象
+        person1.name = &quot;刘德华&quot;;//调用人类的属性并赋值
+        person1.age = 18;
+
+        //如何调用无参数 无返回值的方法：直接调用
+        person1.display();//调用人类中展示自己信息方法
+
+        //如何调用有参数 无返回值的方法：
+        person1.beg(100);//调用人类中乞讨方法，并传递一个值，即钱数
+
+        //如何调用无参数 有返回值的方法：
+        //调用买花的方法，买完花返回了花给我，所以必须去接收花
+        String flower = person1.buyFlowers();
+        System.out.println(&quot;买到了什么花：&quot;+flower);//打印得到的花
+
+        //如何调用有参数 有返回值的方法：
+        //调用计算两个数和的方法，因为这个两个数还没有值，所以传递两个值过去
+        //然后去接收得到的值
+        int sum = person1.sum(10, 20);
+        System.out.println(&quot;总和：&quot;+sum);//打印得到的总和
+
+        //再创建一个人类对象，这是另外一个人，所以对象名必须不相同
+        Person person2 = new Person();
+        person2.name = &quot;苍井空&quot;;
+        person2.age = 14;
+        person2.display();//调用展示信息的方法
+    }
+}
+//执行结果：
+//两个人类对象的信息不同，因为是两个人
+我叫刘德华,今年18岁
+谢谢你给了我100元
+买到了什么花：一支玫瑰花
+总和：30
+我叫苍井空,今年14岁</code></pre></li>
+<li><p>10.4.6 成员变量与局部变量的区别</p>
+<ol>
+<li><p>定义位置：成员变量定义在类中，而局部变量定义在方法中</p>
+</li>
+<li><p>作用范围：成员变量作用于整个类，而局部变量作用于代码块中，且是从该变量声明开始，到该代码块结束。</p>
+</li>
+<li><p>例：</p>
+<pre><code>//1.创建Person类
+public class Person {
+    String name;//姓名
+    int age;//年龄
+
+    //自我介绍的方法，name和age两个变量整个类都能用
+    public void display(){
+        System.out.println(&quot;我叫&quot;+name+&quot;,今年&quot;+age+&quot;岁&quot;);
+    }
+
+    //编写乞讨的方法，这里的money只能在beg方法中使用
+    public void beg(int money){
+        System.out.println(&quot;谢谢你给了我&quot;+money+&quot;元&quot;);
+    }
+
+    //看局部变量在方法内的作用范围
+    public void doInt(){
+        int id = 0;//这里id的作用范围是整个方法
+        for (int i = 0; i &lt; 10; i++) {
+            System.out.println(i);//这里i的作用范围是当前整个for循环
+        }
+        //在不嵌套区域可以定义同名、同类型的局部变量i，因为上面i的作用范围只在上面的for循环之内
+        for (int i = 0; i &lt; 3; i++) {
+            System.out.println(i);//这里i的作用范围是当前整个for循环
+            //这样定义id是错误的，因为这个for循环是嵌套于这个doInt方法中，而定义的局部变量
+            //id是属于定义这个局部变量开始到方法结束，所以内部不可以再定义相同类型与名字的变量
+            int id;
+        }
+        System.out.println(id);//使用id时必须给id赋值，否则会报错
+    }
+}</code></pre></li>
+</ol>
+</li>
+<li><p>10.4.7 属性与方法调用总结：</p>
+<ul>
+<li>属性：公共属性可以直接调用并赋值。私有的属性必须通过特定的方法来调用。</li>
+<li>四种形态的方法如何调用：<ol>
+<li>无参数 无返回值：直接调用；</li>
+<li>有参数 无返回值：调用的时候必须传递一个与方法定义的参数类型的值进去，比如上述例子中，定义的money是int类型的数据，调用的时候就必须传递一个int类型的数据；</li>
+<li>无参数 有返回值：直接调用，但是调用完之后必须要用一个与返回值类型相同的数据类型去接收，比如上述例子中，买花返回值类型是String，必须要用String来接收并使用；</li>
+<li>有参数 有返回值：调用的时候必须传递参数值，然后再用与返回值类型相同的数据类型去接收。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>10.4.8 Java类包</p>
+<ul>
+<li>类名冲突：Java中是不允许同一个包中出现两个同名类存在，但是如果想要写两个同名且功能不同的类，则需要放置在不同的包中。</li>
+<li>完整的类路径：在使用某个类时，入Scanner，因为这个类是隶属于java.util包中，所以直接编写其全路径也是可以的：java.util.Scanner scan = new Scanner(System.in);</li>
+<li>创建包：点击空白处右键–new–package–com…..。</li>
+<li>导入包：直接导入这个类的包，即在这个类文件的最上头，写入import 类的全路径;即可。（注意：同包下的类互相使用时，不需要导包）</li>
+</ul>
+</li>
+<li><p>10.4.9 代码排版的快捷键：</p>
+<ul>
+<li>方法1:选中要排版的代码行数，按ctrl+i直接格式对其。</li>
+<li>方法2:不用选中，直接ctrl+shift+f。</li>
+</ul>
+</li>
+<li><p>10.4.10 传递参数的类型</p>
+<ol>
+<li><p>八种基本数据类型+String类型</p>
+<pre><code>public void one(byte b, short s, int i, double d, char c, float f,
+        long l, boolean bl, String str){
+}</code></pre></li>
+<li><p>参数为数组，数组的值与长度不确定</p>
+<pre><code>public void two(int[] arris, String[] strs){
+    System.out.println(arris.length);
+}</code></pre></li>
+<li><p>参数为对象，Car c = new Car();</p>
+<pre><code>/**
+ * 人开车的方法
+ * @param c 汽车对象
+ */
+public void run(Car c){
+    c.name = &quot;老爷车&quot;;
+    c.carNum = &quot;湘A88888&quot;;
+    c.move();
+}</code></pre></li>
+<li><p>…:String…strs代表传递任意数量该类型的参数：八种基本数据类型与String类型都可以，int…ins，对象也可以，数组也可以。（注意：这个带…的参数类型只能写一个，而且必须写在所有参数的最后！）</p>
+<pre><code>public void three(String...strs){
+    System.out.println(strs);
+}</code></pre></li>
+</ol>
+</li>
+<li><p>10.4.11 返回值类型：八种基本数据类型+String类型、数组、对象。</p>
+</li>
+</ul>
+<h2 id="10-5-作业"><a href="#10-5-作业" class="headerlink" title="10.5 作业"></a>10.5 作业</h2><ol>
+<li>写一个人的类Person，类中有属性：姓名name、年龄age、性别sex。有一个展示自我信息display的方法。写一个测试类Test，创建一个人类对象p，将此人的姓名符值为“麻子”，年龄为18，性别为’男’。显示p的信息。</li>
+<li>写一个狗的类Dog，类中有属性：姓名name、颜色color、体重weight。有一个展示狗信息display的方法。再写一个测试类Test，创建一个狗类对象d1，将此狗的姓名符值为“花花公子”，颜色为“黄色”，体重为32.5公斤，显示d1狗的信息。然后再重新创建一个狗类对象d2，将此狗的姓名符值为“黑熊”，颜色为“黑色”，体重为23.5公斤，再显示d2狗的信息。</li>
+<li>写一个传奇游戏中的猪Pig类，类中有属性：颜色color、身高height、攻击力attack、准确度Accu。有一个展示猪信息display的方法。再写一个测试类，生成一个猪的对象p1，将此猪的颜色值为“白色”，身高为5，攻击力为50，准确度为0.8。要求输出此猪的信息格式为：一只白色的猪，个头5厘米，攻击为为50点血，准确度为0.8，我好怕怕呀。</li>
+<li>写一个牌Card的类，类中有属性：花色color、值value。有一个展示此牌信息display的方法。要求写一个测试类Test，生成一张牌对象c，将此牌的花色设为“梅花”，将此牌的值设为5。最后显示此牌的信息，要求格式为:梅花5。</li>
+<li>写一个日期Date类，类中有属性：年year、月month、日day。有一个展示此牌信息display的方法。要求写一个测试类Test，生成一个日期对象d，设置此日期对象的年为2008，设置此日期的月为10，设置此日期对象的日为1，最后显示此日期，要求格式为：2008年10月1日。</li>
+<li>写一个狗Dog类，类中的属性：品种type，颜色color，体重weight。写出相应的测试类显示自身信息。</li>
+<li>写一个长方形Rectangle的类，类中的属性：长方形的长length，宽width，类中有展示所有信息的display方法。写出相应的测试类。</li>
+<li>写一个学生Student的类，类中的属性：学生的名字name，学生的java成绩JavaScore，学生的sql成绩sqlScore，学生的C#成绩cScore,类中有展示所有信息的display方法，写出相应的测试类。</li>
+<li>写一个汽车Car的类，类中有属性：品牌brand，价格price，颜色color，类中有展示所有信息的display方法，写出相应的测试类。</li>
+<li>写一个猪Pig类，类中的属性：品种type，颜色color，攻击力attack。类中有方法：<ul>
+<li>无参数无返回值的方法：<ol>
+<li>猪走路的方法walk，没有返回值，要求输出格式为“某某品种的某某颜色的猪走来走去”。</li>
+<li>猪打人的方法strike，没有返回值，要求输出格式为“某某品种的某某颜色的猪打人了，攻击力为多少”。<ul>
+<li>有参无返回：猪吃饭的方法eat，传入食物food，要求输出格式为“某某品种的某某颜色的猪在吃某某”。</li>
+<li>无参有返回：猪放屁的方法。要求返回信息“某某品种的某某颜色的猪在放屁”。</li>
+<li>有参有返回：猪买东西的方法shopping。给猪10块钱，去买东西，买回来20个棒棒糖。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>写一个计算机Computer类，类中用属性价格price、品牌brand、出厂日期date。<ul>
+<li>无参无返回：<ol>
+<li>写计算机通电的方法callElc，要求输出“正在通电”。</li>
+<li>写计算机开机的方法startUp，要求输出“正在开机”。</li>
+<li>写计算机关机的方法shutDown，要求输出“正在关机”。</li>
+</ol>
+</li>
+<li>有参有返回：<ol>
+<li>有方法getEvenNum：传入一个数判断这个数是否为偶数的方法，如果这个数是偶数就输出“true”，否则输出“false”。</li>
+<li>有方法getMax：传入两个整数，进行比较，输出两个数中的最大值的方法。</li>
+<li>有方法getMin：传入三个double型的数据，进行比较，输出三个数中的最小值的方法。</li>
+<li>有方法sum：传入三个double型的数据，求和输出和为多少。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>写一个汽车Car的类，类中有属性：品牌brand，价格price，颜色color。类中有方法：<ol>
+<li>显示当前汽车对象的所有属性的方法dispaly。</li>
+<li>汽车启动的方法startUp，要求输出“XX品牌的汽车启动了”。</li>
+<li>汽车加速的方法speedUp，要求输出“XX品牌的汽车加速中”。</li>
+<li>汽车被卖的方法sold，要求输出“XX品牌的汽车被以XX元的价格卖了”。</li>
+</ol>
+</li>
+<li>写一个榨汁机Juicer类，属性：价格price，品牌brand。类中有方法：<ol>
+<li>写榨汁机通电的callElc方法，要求输出“正在通电”，没有返回。</li>
+<li>写榨汁机开机的startUp方法，要求输出“正在开机”，记住开机之前必须调用通电的方法，没有返回。</li>
+<li>榨汁的Juice方法：传入不同的水果，就得到不同的果汁。（如：传入西瓜得到西瓜汁）。</li>
+</ol>
+</li>
+<li>写一个数学家Mather的类，类中有方法：<ol>
+<li>传入一个整数，返回这个整数的个位数是几的getSingle方法。</li>
+<li>传入一个整数，返回这个整数的立方的getCube方法。</li>
+<li>传入一个正整数，计算从1加到此整数的和是多少的sum方法。比如输入一个5那么就计算1+2+3+4+5=15，最后返回15。</li>
+</ol>
+</li>
+<li>写一个学生的类，类中的属性学生的名字，学生的java成绩，学生的sql成绩，学生的C#成绩。类中有方法：<ol>
+<li>学生学习的方法，无返回，要求输出“学生在学习”。</li>
+<li>返回学生所有功课总成绩的方法。</li>
+<li>返回学生把有功 课平均分的方法。</li>
+</ol>
+</li>
+<li>写一个长方形的类，类中的属性：长方形的长，宽。类中有方法：<ol>
+<li>移动的方法，没有返回值，要求输出“长方形在移动”。</li>
+<li>变化的方法，没有返回值，要求输出“长方形正在变化”。</li>
+<li>显示此长方形信息的方法。</li>
+<li>得到长方形周长的方法。返回此长方形的周长。</li>
+<li>得到长方形的面积的方法，返回此长方形面积。</li>
+</ol>
+</li>
+<li>写一个汽车司机的类，类中有属性：姓名，性别，年龄，驾驶证号，汽车牌号。类中有方法：<ol>
+<li>显示所有数据的方法。</li>
+<li>司机开车的方法，显示“某某司机正在开某某牌号的车”。司机停车的方法，显示“某某司机把某某牌号的车停了下来”。</li>
+<li>检查此司机是否是某某姓名的方法，要求传入一个司机的姓名，检查这个姓名是否是此司机的姓名，要求返回一个true或false。</li>
+<li>检查此司机是否是某某汽车牌号的方法，要求传入一个车牌号，检查这个牌号是否是此司机的汽车牌号，要求返回一个true或false。</li>
+</ol>
+</li>
+<li>写一个数学家的类，类中有方法：<ol>
+<li>传入一个double类型的的数组{4.2,4.5,5.6,1.2,7.8,3.4}求这个数组的和，将结果返回。</li>
+<li>传入一个double类型的的数组{4.2,4.5,5.6,1.2,7.8,3.4}将这个数组最大，将最大值返回。</li>
+</ol>
+</li>
+</ol>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">cheerfulman</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://cheerfulman.github.io/2019/10/08/第十章_初识Java面向对象/">http://cheerfulman.github.io/2019/10/08/第十章_初识Java面向对象/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/JAVA/">JAVA    </a></div><div class="post_share"><div class="social-share" data-image="http://pic40.nipic.com/20140424/12259251_002036722178_2.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-buttom"><i class="fa fa-qrcode"></i> Donate<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lozad post-qr-code__img" src="/img/wei.png"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lozad post-qr-code__img" src="/img/zhi.png"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2019/09/20/shuangzhizhen/"><img class="next_cover lozad" data-src="http://pic.rmb.bdstatic.com/18eb6a96a8b8b4869dba6fe63dedef5e.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">Next Post</div><div class="next_info"><span>最长连续不重复子序列</span></div></a></div></nav><hr><div id="post-comment"><div class="comment_headling"><i class="fa fa-comments fa-fw" aria-hidden="true"></i><span> Comment</span></div><div id="lv-container" data-id="city" data-uid="MTAyMC80NjYzOS8yMzE0OQ=="><script>(function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+})(document, 'script');</script></div></div></div></div><footer><div id="footer"><div class="copyright">&copy;2018 - 2019 By cheerfulman</div><div class="framework-info"><span>Driven </span><a href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>Theme </span><a href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer><i class="fa fa-arrow-up" id="go-up" aria-hidden="true"></i><section class="rightside" id="rightside"><a id="to_comment" href="#post-comment"><i class="scroll_to_comment fa fa-comments"></i></a><i class="fa fa-book" id="readmode" title="Read Mode"> </i><i class="fa fa-plus" id="font_plus" title="Increase font size"></i><i class="fa fa-minus" id="font_minus" title="Decrease font size"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="Traditional Chinese and Simplified Chinese Conversion">繁</a><i class="nightshift fa fa-moon-o" id="nightshift" title="Dark Mode"></i></section><div class=" " id="post_bottom"><div id="post_bottom_items"><a id="mobile_to_comment" href="#post-comment"><i class="mobile_scroll_to_comment fa fa-comments"></i></a><i class="fa fa-list" id="mobile_toc"></i><div id="toc_mobile"><div class="toc_mobile_headline">Catalog</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-1"><a class="toc_mobile_items-link" href="#第十章-初识Java面向对象"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">第十章 初识Java面向对象</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#提纲"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">提纲</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#一、类与对象的概念"><span class="toc_mobile_items-number">1.2.</span> <span class="toc_mobile_items-text">一、类与对象的概念</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#10-2-面向对象思想"><span class="toc_mobile_items-number">1.3.</span> <span class="toc_mobile_items-text">10.2 面向对象思想</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#10-3-复合语句"><span class="toc_mobile_items-number">1.4.</span> <span class="toc_mobile_items-text">10.3 复合语句</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#10-4-类"><span class="toc_mobile_items-number">1.5.</span> <span class="toc_mobile_items-text">10.4 类</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-2"><a class="toc_mobile_items-link" href="#10-5-作业"><span class="toc_mobile_items-number">1.6.</span> <span class="toc_mobile_items-text">10.5 作业</span></a></li></ol></li></ol></div></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/animejs@latest/anime.min.js"></script><script src="/js/third-party/fireworks.js"></script><script src="/js/nightshift.js"></script><script id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zindex="-1" data-click="false"></script><script id="ribbon" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js"></script><script color="0,0,255" opacity="0.7" zindex="-1" count="99" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN/js/canvas-nest.js"></script><script src="/js/activate-power-mode.js"></script><script>POWERMODE.colorful = true; // make power mode colorful
+POWERMODE.shake = true; // turn off shake
+document.body.addEventListener('input', POWERMODE);
+</script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@1.2.2/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script>const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();</script></body></html>
