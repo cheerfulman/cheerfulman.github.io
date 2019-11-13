@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>单调栈</title>
+      <link href="/2019/11/13/dandiaostack/"/>
+      <url>/2019/11/13/dandiaostack/</url>
+      
+        <content type="html"><![CDATA[<h1 id="单调栈"><a href="#单调栈" class="headerlink" title="单调栈"></a>单调栈</h1><hr><p><code>例题:</code><br>给定一个长度为N的整数数列，输出每个数左边第一个比它小的数，如果不存在则输出-1。<br><strong><em>输入格式</em></strong><br>第一行包含整数N，表示数列长度。<br>第二行包含N个整数，表示整数数列。<br><strong><em>输出格式</em></strong><br>共一行，包含N个整数，其中第i个数表示第i个数的左边第一个比它小的数，如果不存在则输出-1。<br><strong><em>数据范围</em></strong><br>1≤N≤105<br>1≤数列中元素≤109<br><strong><em>输入样例：</em></strong><br>5<br>3 4 2 7 5<br><strong><em>输出样例：</em></strong><br>-1 3 -1 2 2</p><h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a><strong>解题思路</strong></h2><p>用单调递增栈维护，当比栈顶大时，直接输出栈顶元素，并入栈；<br>比栈顶元素小时，则出栈，直到比栈顶元素小，重复上一步，或者为空输出-1，入栈；</p><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="comment">#include&lt;iostream&gt;</span></span><br><span class="line">using namespace std;</span><br><span class="line">const int N = 1E5 + 10;</span><br><span class="line">int b[N],top = 0;</span><br><span class="line">bool <span class="function"><span class="title">isempty</span></span>()&#123;</span><br><span class="line">    <span class="keyword">if</span>(top == 0)<span class="built_in">return</span> <span class="literal">true</span>;</span><br><span class="line">    <span class="built_in">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br><span class="line">void push_stack(int x)&#123;</span><br><span class="line">    b[top++] = x;</span><br><span class="line">&#125;</span><br><span class="line">int <span class="function"><span class="title">main</span></span>()&#123;</span><br><span class="line">    int a[N],n;</span><br><span class="line">    scanf(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line">    <span class="keyword">for</span>(int i = 0; i &lt; n ; i++)scanf(<span class="string">"%d"</span>,&amp;a[i]);</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">for</span>(int i = 0; i &lt; n ; i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(isempty())&#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"-1 "</span>);</span><br><span class="line">            push_stack(a[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">while</span>(top &amp;&amp; a[i] &lt;= b[top - 1])top--;</span><br><span class="line">            <span class="keyword">if</span>(isempty())&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"-1 "</span>);</span><br><span class="line">                push_stack(a[i]);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d "</span>,b[top - 1]);</span><br><span class="line">                push_stack(a[i]);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">return</span> 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> acwing </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>最长连续不重复子序列</title>
       <link href="/2019/09/20/shuangzhizhen/"/>
       <url>/2019/09/20/shuangzhizhen/</url>
